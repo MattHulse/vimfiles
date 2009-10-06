@@ -152,10 +152,12 @@ if !has("gui")
 else
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme desert
+        "colorscheme desert
+        colorscheme wombat 
     else
         set t_Co=256
-        colorscheme vibrantink
+        "colorscheme vibrantink
+        colorscheme wombat
         set guitablabel=%M%t
         set lines=40
         set columns=115
@@ -164,8 +166,7 @@ else
         set guifont=Monaco:h16
     endif
     if has("gui_win32") || has("gui_win32s")
-        set guifont=Consolas:h12
-				set enc=utf-8
+        set guifont=Bitstream_Vera_Sans_Mono:h14:cANSI
     endif
 endif
 
@@ -221,3 +222,39 @@ function! s:HighlightExcessColumns(width)
         echomsg "HighlightExcessColumns: set a &textwidth, or pass one in"
     endif
 endfunction
+
+
+nnoremap <F5> :!ruby %<CR>
+inoremap <F5> <esc> <F5>
+vnoremap <F5> <esc> <F5>
+
+nnoremap <c-s> :w<CR>
+inoremap <c-s> <esc>:w<CR> 
+vnoremap <c-s> <esc>:w<CR>
+
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-k> <c-w>k
+
+inoremap <c-j> <esc> <c-j>
+inoremap <c-h> <esc> <c-h>
+inoremap <c-l> <esc> <c-l>
+inoremap <c-k> <esc> <c-k>
+
+vnoremap <c-j> <esc> <c-j>
+vnoremap <c-h> <esc> <c-h>
+vnoremap <c-l> <esc> <c-l>
+vnoremap <c-k> <esc> <c-k>
+
+set ic " Case insensitive search
+set hls " Highlight search
+set showmatch " Show matching brackets
+set ignorecase
+set noswapfile
+set expandtab
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
